@@ -1,0 +1,7 @@
+{
+	"categoryList" : [ "all","engineering","codestream","maths","puzzles"],
+	"engineering" : ["event1","event2","event3"],
+	"codestream" : ["event4","event5","event6"],
+	"maths" : ["event7","event8"],
+	"puzzles" : ["event9","event10"]
+}

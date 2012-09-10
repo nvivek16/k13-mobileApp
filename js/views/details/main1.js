@@ -2,8 +2,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/categoryModel',
-	'text!templates/details1.html',
+	'models/eventModel',
+	'text!templates/details2.html',
 	'tooltip',
 	'collapse',
 	'popover',
@@ -14,18 +14,19 @@ define([
 	'bootScrollspy',
 	'modal',
 	'bootButton'
-	], function($, _,Backbone,categoryModel,detailsTemplate)
+	], function($, _,Backbone,eventlistModel,detailsTemplate)
 		{
-		var detailsView = Backbone.View.extend({
+		var eventsView = Backbone.View.extend({
 		e1: $("#content"),
 		initialize: function(){
-			this.categoryModel = new categoryModel;
+			this.eventlistModel = new eventlistModel;
 			},
 		render: function(){
-		        console.log(category);
-			var compiledTemplate = _.template(detailsTemplate, category);
+		       
+			console.log(eventlist);
+			var compiledTemplate = _.template(detailsTemplate, eventlist);
 			console.log(compiledTemplate);
 			this.e1.html(compiledTemplate);
 		}});
-		return new detailsView;
+		return new eventsView;
 	});
