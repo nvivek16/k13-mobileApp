@@ -4,22 +4,25 @@ define([
 	'backbone'
 	], function($,_,Backbone){
 	
-	var eventlistModel = Backbone.Model.extend({
-	baseurl : '../../json/eventlist.json',
-	displayEvents : function(options)
+	var eventModel = Backbone.Model.extend({
+	baseurl : 'http://localhost:3000/events/',
+	displayEvent : function(options)
 	{	
 		var success = options.success;
-		var category = options.category;
+		var eventName = options.eventName;
 		var model = this;
-		$.getJSON("file:///home/vivekanandhan/Desktop/k13!/json/eventlist.json",function(data)
+		console.log(eventName);
+		 var url = this.baseurl+eventName +".json?callback=?";
+		console.log(url);
+		$.getJSON(url,function(data)
 			{
-			console.log(category);
-		 	var eventlist = data[category];
-			success(eventlist);
+			eventdescription = data;
+			console.log(data);
+			success(model,eventdescription);
 			});
-		
+	
 	
 			}
 	});
-	return eventlistModel;
+	return eventModel;
 });

@@ -2,37 +2,59 @@ define(['jquery',
 	'underscore',
 	'backbone',
 	'views/main',
-	'views/details/main',
-	'views/details/main1',
-	],function($,_,Backbone,mainView,detailsView,eventsView){
+	'views/details/category',
+	'views/details/eventslist',
+	'views/details/event',
+	'views/details/map'
+	],function($,_,Backbone,mainView,detailsView,eventslistView,eventView,mapView){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 
-			'events' : 'detailsAction',
-			'eventlist/:event' : 'eventdisplayAction',					'*actions': 'defaultAction'
+			'events' : 'categorydetailsAction',
+			'categories/:category' : 'eventsdisplayAction', 
+			'event/:eventName/displayMap' : 'mapdisplayAction',
+			'event/:eventName' : 'eventdetailsAction',
+			'*actions': 'defaultAction'
 			},
 			defaultAction: function(actions){
 				$("#home").addClass("active");
 				mainView.render();
 			},
-			eventdisplayAction: function(event)
+			eventsdisplayAction: function(category)
 			{
-				eventsView.eventlistModel.displayEvents({
+				console.log(category);
+				eventslistView.eventslistModel.displayEvents({
 					success: function(eventlist){
 					this.eventlist = eventlist;
 					console.log(this.eventlist);
-					eventsView.render();
+					eventslistView.render();
 						},
-					category: event});
+					category: category});
 			},
-			detailsAction: function(){
+			categorydetailsAction: function(){
 				detailsView.categoryModel.displayCategory({
 					success: function(category){
 					detailsView.render();
 				}
 				});		
 			
-			}});
+			},
+			eventdetailsAction: function(eventName){
+				eventView.eventModel.displayEvent({
+					success: function(eventdescription){
+						eventView.render();
+						},
+					eventName: eventName
+				
+					});
+
+			},
+
+			mapdisplayAction: function(eventName){
+
+				mapView.render();
+			}
+			});
 		var initialize = function(){
 		 	var app_router = new AppRouter;
 			Backbone.history.start();

@@ -10,9 +10,11 @@ define([
 	{	
 		var success = options.success;
 		var model = this;
-		$.getJSON("file:///home/vivekanandhan/Desktop/k13!/json/eventlist.json",function(data)
+		console.log("hello");
+		$.getJSON("http://localhost:3000/categories.json?callback=?",function(data)
 			{
-			category = data.categoryList;
+			console.log("hi");
+			category = data;
 			console.log(category);
 			success(model,category);
 			});
