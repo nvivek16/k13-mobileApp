@@ -3,11 +3,13 @@ define([
 	'underscore',
 	'backbone'
 	], function($,_,Backbone){
-	
+
 	var eventslistModel = Backbone.Model.extend({
+
 	baseurl : 'http://shrouded-cove-5478.herokuapp.com/categories/',
+
 	displayEvents : function(options)
-	{	
+	{
 		var success = options.success;
 		var category = options.category;
 		var model = this;
@@ -19,8 +21,8 @@ define([
 			eventslist = data;
 		 	success(model,eventslist);
 			});
-		
-	
+
+
 			}
 	});
 	return eventslistModel;
