@@ -23,11 +23,11 @@ define([
 			longitude = position.coords.longitude;
 			console.log(latitude);
 			console.log(longitude);
-			this.initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-			console.log(this.initialLocation);
+			var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+			var map_ordinates = {"vivek audi" : new google.maps.LatLng(13.011509,80.236491),"mba audi" : "Management Studies Block, Ranjith Rd, Chennai, Tamil Nadu, India", "hm hall" : new google.maps.LatLng(13.011089,80.232905 )}; 	
 			var request = {
-        	origin: this.initialLocation, 
-        	destination: new google.maps.LatLng(13.011089,80.232905),
+        	origin: initialLocation, 
+        	destination: map_ordinates[$("#place").text()],
         	travelMode: google.maps.DirectionsTravelMode.DRIVING
         	};
 			directionsService.route(request, function(response, status) {

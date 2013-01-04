@@ -19,11 +19,14 @@ define(['jquery',
 			defaultAction: function(actions){
 				$("#home").addClass("active");
 				$("#loading").hide();
+
 				mainView.render();
 			},
 			eventsdisplayAction: function(category)
 			{
 				console.log(category);
+				$("#content").hide();
+				$("#loading").show();	
 				eventslistView.eventslistModel.displayEvents({
 					success: function(eventlist){
 					this.eventlist = eventlist;
@@ -33,15 +36,18 @@ define(['jquery',
 					category: category});
 			},
 			categorydetailsAction: function(){
+				$("#content").hide();
+				$("#loading").show();
 				detailsView.categoryModel.displayCategory({
 					success: function(category){
-					//$("loading").show();
 					detailsView.render();
 				}
 				});		
 			
 			},
 			eventdetailsAction: function(eventName){
+				$("#content").hide();
+				$("#loading").show();
 				eventView.eventModel.displayEvent({
 					success: function(eventdescription){
 						eventView.render();

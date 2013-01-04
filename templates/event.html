@@ -2,7 +2,7 @@
 <p>
 <%= eventdescription["description"] %>
 </p>
-<h3>venue:<a href = "#event/<%= eventdescription["name"]%>/displayMap" ><%= eventdescription["place"] %></a></h3>
+<h3>venue:<a id = "place" href = "#event/<%= eventdescription["name"]%>/displayMap" ><%= eventdescription["place"] %></a></h3>
 <div style="width: 600px;">
      <div id="map" style="width: 280px; height: 400px; float: left;"></div>
      <div id="panel" style="width: 300px; float: right;"></div>

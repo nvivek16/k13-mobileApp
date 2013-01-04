@@ -20,13 +20,13 @@ define([
 		e1: $("#content"),
 		initialize: function(){
 			this.categoryModel = new categoryModel;
-			$("#loading").show();
 			},
 		render: function(){
 		        console.log(category);
 			var compiledTemplate = _.template(detailsTemplate, category);
 			console.log(compiledTemplate);
 			$("#loading").hide();
+			$("#content").show();
 			this.e1.html(compiledTemplate);
 
 		}});
