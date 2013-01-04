@@ -20,12 +20,14 @@ define([
 		e1: $("#content"),
 		initialize: function(){
 			this.eventslistModel = new eventslistModel;
+			$("#loading").show();
 			},
 		render: function(){
 		       
 			console.log(eventslist);
 			var compiledTemplate = _.template(detailsTemplate, eventslist);
 			console.log(compiledTemplate);
+			$("#loading").hide();
 			this.e1.html(compiledTemplate);
 		}});
 		return new eventslistView;

@@ -5,7 +5,7 @@ define([
 	], function($,_,Backbone){
 	
 	var eventslistModel = Backbone.Model.extend({
-	baseurl : 'http://localhost:3000/categories/',
+	baseurl : 'http://shrouded-cove-5478.herokuapp.com/categories/',
 	displayEvents : function(options)
 	{	
 		var success = options.success;

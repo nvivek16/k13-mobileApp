@@ -10,10 +10,8 @@ define([
 	{	
 		var success = options.success;
 		var model = this;
-		console.log("hello");
-		$.getJSON("http://localhost:3000/categories.json?callback=?",function(data)
+		$.getJSON("http://shrouded-cove-5478.herokuapp.com/categories.json?callback=?",function(data)
 			{
-			console.log("hi");
 			category = data;
 			console.log(category);
 			success(model,category);

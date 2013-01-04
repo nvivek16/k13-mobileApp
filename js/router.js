@@ -18,6 +18,7 @@ define(['jquery',
 			},
 			defaultAction: function(actions){
 				$("#home").addClass("active");
+				$("#loading").hide();
 				mainView.render();
 			},
 			eventsdisplayAction: function(category)
@@ -34,6 +35,7 @@ define(['jquery',
 			categorydetailsAction: function(){
 				detailsView.categoryModel.displayCategory({
 					success: function(category){
+					//$("loading").show();
 					detailsView.render();
 				}
 				});		
