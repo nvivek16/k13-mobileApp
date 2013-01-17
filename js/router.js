@@ -5,8 +5,9 @@ define(['jquery',
 	'views/details/category',
 	'views/details/eventslist',
 	'views/details/event',
-	'views/details/map'
-	],function($,_,Backbone,mainView,detailsView,eventslistView,eventView,mapView){
+	'views/details/map',
+	'views/details/newsfeed'
+	],function($,_,Backbone,mainView,detailsView,eventslistView,eventView,mapView,newsfeedView){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 
@@ -14,14 +15,24 @@ define(['jquery',
 			'categories/:category' : 'eventsdisplayAction', 
 			'event/:eventName/displayMap' : 'mapdisplayAction',
 			'event/:eventName' : 'eventdetailsAction',
-			'*actions': 'defaultAction'
+			'*actions':'newsfeedAction'
+			//'*actions': 'defaultAction'
 			},
 			defaultAction: function(actions){
-				$("#home").addClass("active");
+				
 				$("#loading").hide();
-
 				mainView.render();
 			},
+			newsfeedAction: function()
+			{
+				$("#home").addClass("active");
+				$("#loading").hide();
+				newsfeedView.newsfeedModel.displayFeed({
+					success: function(newsfeed){
+					newsfeedView.render();
+				}
+						});
+					},
 			eventsdisplayAction: function(category)
 			{
 				console.log(category);
@@ -29,8 +40,6 @@ define(['jquery',
 				$("#loading").show();	
 				eventslistView.eventslistModel.displayEvents({
 					success: function(eventlist){
-					this.eventlist = eventlist;
-					console.log(this.eventlist);
 					eventslistView.render();
 						},
 					category: category});

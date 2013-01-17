@@ -5,7 +5,7 @@ define([
 	], function($,_,Backbone){
 
 	var eventModel = Backbone.Model.extend({
-	baseurl : 'http://shrouded-cove-5478.herokuapp.com/events/',
+	baseurl : 'http://localhost:3000/events/',
 
 	displayEvent : function(options)
 	{
