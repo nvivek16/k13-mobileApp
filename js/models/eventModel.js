@@ -5,7 +5,7 @@ define([
 	], function($,_,Backbone){
 
 	var eventModel = Backbone.Model.extend({
-	baseurl : 'http://localhost:3000/events/',
+	baseurl : 'http://gentle-gorge-9059.herokuapp.com/events/',
 
 	displayEvent : function(options)
 	{

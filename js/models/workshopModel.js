@@ -5,7 +5,7 @@ define([
 	], function($,_,Backbone){
 
 	var workshopModel = Backbone.Model.extend({
-	baseurl : 'http://localhost:3000/workshops/',
+	baseurl : 'http://gentle-gorge-9059.herokuapp.com/workshops/',
 
 	displayWorkshop : function(options)
 	{

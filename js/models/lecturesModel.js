@@ -9,7 +9,7 @@ define([
 	{
 		var success = options.success;
 		var model = this;
-		$.getJSON("http://localhost:3000/lectures.json?callback=?",function(data)
+		$.getJSON("http://gentle-gorge-9059.herokuapp.com/lectures.json?callback=?",function(data)
 		
 			{
 			lecture = data;
