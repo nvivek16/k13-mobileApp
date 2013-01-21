@@ -1,3 +1,16 @@
-.container #content {
-	padding-top: 60px;
+#content {
+	padding: 5px;
+	background: #fff;
+	box-shadow: 0 2px 5px 0 #AAA;
+	border: 1px solid #ddd;
+}
+.k-heading {
+	border-bottom: #ddd 1px solid;
+	margin:-5px -5px 5px -5px;
+	padding: 5px;
+	background: #ececec;
+	text-align: center;
+}
+body {
+	background: #f9f9f9;
 }

@@ -6,8 +6,13 @@ define(['jquery',
 	'views/details/eventslist',
 	'views/details/event',
 	'views/details/map',
-	'views/details/newsfeed'
-	],function($,_,Backbone,mainView,detailsView,eventslistView,eventView,mapView,newsfeedView){
+	'views/details/newsfeed',
+	'views/details/workshops',
+	'views/details/lectures',
+	'views/details/workshop',
+	'views/details/lecture',
+	'views/details/sponsor'
+	],function($,_,Backbone,mainView,detailsView,eventslistView,eventView,mapView,newsfeedView,workshopsView,lecturesView,workshopView,lectureView,sponsorView){
 		var AppRouter = Backbone.Router.extend({
 			routes: {
 
@@ -15,13 +20,22 @@ define(['jquery',
 			'categories/:category' : 'eventsdisplayAction', 
 			'event/:eventName/displayMap' : 'mapdisplayAction',
 			'event/:eventName' : 'eventdetailsAction',
+			'workshops' : 'workshopsdisplayAction',
+			'guestLectures' : 'lecturesdisplayAction',
+			'workshops/:eventName' : 'workshopdetailsAction',
+			'lectures/:lecture' : 'lecturedetailsAction',
+			'workshop/:eventName/displayMap' : 'mapdisplayAction',
+			'lecture/:eventName/displayMap' : 'mapdisplayAction',
+			'about' : 'defaultAction',
+			'sponsors' : 'sponsorsDisplayAction',
 			'*actions':'newsfeedAction'
-			//'*actions': 'defaultAction'
+
 			},
 			defaultAction: function(actions){
 				
 				$("#loading").hide();
 				mainView.render();
+
 			},
 			newsfeedAction: function()
 			{
@@ -54,6 +68,26 @@ define(['jquery',
 				});		
 			
 			},
+			workshopsdisplayAction: function(){
+				$("#content").hide();
+				$("#loading").show();
+				workshopsView.workshopsModel.displayWorkshop({
+					success: function(workshop){
+					workshopsView.render();
+				}
+				});		
+			
+			},
+			lecturesdisplayAction: function(){
+				$("#content").hide();
+				$("#loading").show();
+				lecturesView.lecturesModel.displayLecture({
+					success: function(lecture){
+					lecturesView.render();
+				}
+				});		
+			
+			},
 			eventdetailsAction: function(eventName){
 				$("#content").hide();
 				$("#loading").show();
@@ -67,9 +101,40 @@ define(['jquery',
 
 			},
 
+			workshopdetailsAction: function(eventName){
+				$("#content").hide();
+				$("#loading").show();
+				workshopView.workshopModel.displayWorkshop({
+					success: function(eventdescription){
+						workshopView.render();
+						},
+					eventName: eventName
+				
+					});
+
+			},
+
+			lecturedetailsAction: function(eventName){
+				$("#content").hide();
+				$("#loading").show();
+				lectureView.lectureModel.displayLecture({
+					success: function(eventdescription){
+						lectureView.render();
+						},
+					eventName: eventName
+				
+					});
+
+			},
 			mapdisplayAction: function(eventName){
 
 				mapView.render();
+			},
+
+			sponsorsDisplayAction : function(){
+
+				sponsorView.render();
+
 			}
 			});
 		var initialize = function(){

@@ -27,6 +27,10 @@ define([
 			console.log(compiledTemplate);
 			$("#loading").hide();
 			$("#content").show();
+			$(".btn.btn-navbar").toggleClass("collapsed");
+			$(".nav-collapse.in.collapse").toggleClass("in").height(0);
+
+		
 			this.e1.html(compiledTemplate);
 
 		}});

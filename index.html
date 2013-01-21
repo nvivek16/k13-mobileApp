@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="cache.manifest">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Bootstrap, from Twitter</title>
@@ -33,20 +33,21 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Kurukshetra</a>
+          <a class="brand" href="#"><img src="img/klogo_mob.png"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li id="home" class="active"><a href="#">Home</a></li>
-              <li id="events"><a href="#events">Events</a></li>
-              <li><a href="#workshops">Workshops</a></li>
-              <li><a href="#guestLectures">Guest Lectures</a></li>
-              <li><a href="#about">About Us</a></li>
+              <li id="home" class="active"><a href="#"><i class="icon-home icon-white"></i>Live Feed</a></li>
+              <li id="events"><a href="#events"><i class="icon-bookmark icon-white"></i> Events</a></li>
+              <li><a href="#workshops"><i class="icon-wrench icon-white"></i> Workshops</a></li>
+              <li><a href="#guestLectures"><i class="icon-comment icon-white"></i> Guest Lectures</a></li>
+              <li><a href="#sponsors"><i class="icon-star icon-white"></i>Sponsors</a></li>
+              <li><a href="#about"><i class="icon-user icon-white"></i> About Us</a></li>
             </ul>
           </div><!--/.nav-collapse -->
          
@@ -54,12 +55,14 @@
       </div>
     </div>
 
-    <div class="container">
-       <div id="loading" style="display: none">
+    <div class="container-fluid">
+      <div class="row-fluid">
+          <div id="loading" style="display: none">
             <center><img src="img/ajax-loader.gif" /></center>
           </div>
-    <div id="content">
-   </div>
+        <div id="content">
+        </div>
+      </div> <!-- /row-fluid -->
     </div> <!-- /container -->
 
     <!-- Le javascript

@@ -35,6 +35,11 @@ define([
 	 		if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
           	} 
+          	$('html,body').animate(
+          	{
+
+          		scrollTop: $("#map").offset().top
+          	},'slow');
 		});
 	},
 	 failure : function(){

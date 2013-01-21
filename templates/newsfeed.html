@@ -1,4 +1,8 @@
-<ul class ="nav nav-pills nav-stacked">
- 	<% _.each(newsfeed,function(feed){ %><li><center><%= feed%><%}) %></center></a><li>
 
-</ul>
+<table class="table table-bordered table-striped">
+ <tbody>
+ 	<% _.each(newsfeed,function(feed){ %> 
+ 		<tr><td><%= feed %></td></tr>
+ 	<%})%>
+ </tbody>
+</table>

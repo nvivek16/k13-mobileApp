@@ -22,6 +22,8 @@ define([
 		render: function(){
 			var data = {};
 			var compiledTemplate = _.template(aboutTemplate, data);
+			$(".btn.btn-navbar").toggleClass("collapsed");
+			$(".nav-collapse.in.collapse").toggleClass("in").height(0);
 			this.e1.html(compiledTemplate);
 		}});
 		return new mainView;

@@ -2,8 +2,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/newsfeedModel',
-	'text!templates/newsfeed.html',
+	'text!templates/sponsor.html',
 	'tooltip',
 	'collapse',
 	'popover',
@@ -14,24 +13,18 @@ define([
 	'bootScrollspy',
 	'modal',
 	'bootButton'
-	], function($, _,Backbone,newsfeedModel,detailsTemplate)
+	], function($, _,Backbone,aboutTemplate)
 		{
-		var detailsView = Backbone.View.extend({
+		var sponsorView = Backbone.View.extend({
 		e1: $("#content"),
 		initialize: function(){
-			this.newsfeedModel = new newsfeedModel;
-			},
+		},
 		render: function(){
-		       
-			
-			var compiledTemplate = _.template(detailsTemplate, newsfeed);
-			console.log(compiledTemplate);
-			$("#loading").hide();
-			$("#content").show();
+			var data = {};
+			var compiledTemplate = _.template(aboutTemplate, data);
 			$(".btn.btn-navbar").toggleClass("collapsed");
 			$(".nav-collapse.in.collapse").toggleClass("in").height(0);
 			this.e1.html(compiledTemplate);
-
 		}});
-		return new detailsView;
+		return new sponsorView;
 	});

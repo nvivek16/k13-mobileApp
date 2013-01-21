@@ -2,8 +2,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/newsfeedModel',
-	'text!templates/newsfeed.html',
+	'models/lecturesModel',
+	'text!templates/lectures.html',
 	'tooltip',
 	'collapse',
 	'popover',
@@ -14,24 +14,22 @@ define([
 	'bootScrollspy',
 	'modal',
 	'bootButton'
-	], function($, _,Backbone,newsfeedModel,detailsTemplate)
+	], function($, _,Backbone,lecturesModel,detailsTemplate)
 		{
-		var detailsView = Backbone.View.extend({
+		var lecturesView = Backbone.View.extend({
 		e1: $("#content"),
 		initialize: function(){
-			this.newsfeedModel = new newsfeedModel;
+			this.lecturesModel = new lecturesModel;
 			},
 		render: function(){
-		       
-			
-			var compiledTemplate = _.template(detailsTemplate, newsfeed);
+		    var compiledTemplate = _.template(detailsTemplate, lecture);
 			console.log(compiledTemplate);
 			$("#loading").hide();
 			$("#content").show();
 			$(".btn.btn-navbar").toggleClass("collapsed");
-			$(".nav-collapse.in.collapse").toggleClass("in").height(0);
+			$(".nav-collapse.in.collapse").toggleClass("in").height(0)
 			this.e1.html(compiledTemplate);
 
 		}});
-		return new detailsView;
+		return new lecturesView;
 	});
