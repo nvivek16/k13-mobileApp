@@ -44,17 +44,26 @@ define(['jquery',
 			newsfeedAction: function()
 			{
 				$("#home").addClass("active");
+				console.log(navigator);
+				if(navigator.onLine)
+				{
 				$("#content").hide();
 				$("#loading").show();
-
+				
 				newsfeedView.newsfeedModel.displayFeed({
 					success: function(newsfeed){
 					newsfeedView.render();
 					
 				}
 
+
 				
 						});
+				}
+				else
+				{
+					$("content").html("Check your internet Connection");
+				}
 					},
 			eventsdisplayAction: function(category)
 			{

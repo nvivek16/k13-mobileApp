@@ -10,7 +10,7 @@ define([
 	{
 		var success = options.success;
 		var model = this;
-		$.getJSON("http://gentle-gorge-9059.herokuapp.com/updates.json?callback=?",function(data)
+		$.getJSON("http://kurukshetra13.herokuapp.com/updates.json?callback=?",function(data)
 		
 			{
 			newsfeed = data;

@@ -5,7 +5,7 @@ define([
 	], function($,_,Backbone){
 
 	var lectureModel = Backbone.Model.extend({
-	baseurl : 'http://gentle-gorge-9059.herokuapp.com/lectures/',
+	baseurl : 'http://kurukshetra13.herokuapp.com/lectures/',
 
 	displayLecture : function(options)
 	{
