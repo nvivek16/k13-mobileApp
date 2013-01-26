@@ -31,6 +31,10 @@ define(['jquery',
 			'*actions':'newsfeedAction'
 
 			},
+			
+
+			
+			
 			defaultAction: function(actions){
 				
 				$("#loading").hide();
@@ -40,11 +44,16 @@ define(['jquery',
 			newsfeedAction: function()
 			{
 				$("#home").addClass("active");
-				$("#loading").hide();
+				$("#content").hide();
+				$("#loading").show();
+
 				newsfeedView.newsfeedModel.displayFeed({
 					success: function(newsfeed){
 					newsfeedView.render();
+					
 				}
+
+				
 						});
 					},
 			eventsdisplayAction: function(category)
@@ -133,13 +142,17 @@ define(['jquery',
 
 			sponsorsDisplayAction : function(){
 
+				$("#content").hide();
+				$("#loading").show();
 				sponsorView.render();
 
 			}
 			});
 		var initialize = function(){
-		 	var app_router = new AppRouter;
+		 	 app_router = new AppRouter;
+		 	
 			Backbone.history.start();
+
 			};
 		return {
 			initialize: initialize

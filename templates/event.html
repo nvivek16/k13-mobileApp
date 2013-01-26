@@ -2,7 +2,9 @@
 <p>
 <%= eventdescription["description"] %>
 </p>
-<h3>venue:<a id = "place" href = "#event/<%= eventdescription["name"]%>/displayMap" ><%= eventdescription["place"] %></a></h3>
+<h4>Scheduled date and time : <%= eventdescription["timing"] %></h4>
+<h4>Contact : <%= eventdescription["contact"] %></h4>
+<h4>venue:<a id = "place" href = "#event/<%= eventdescription["name"]%>/displayMap" ><%= eventdescription["place"] %></a></h4>
 <div class = "container-fluid">
 	<div class = "row-fluid"> 
      <div id="map" style="width: 100%; height: 400px;"></div>

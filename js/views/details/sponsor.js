@@ -20,8 +20,11 @@ define([
 		initialize: function(){
 		},
 		render: function(){
+
 			var data = {};
 			var compiledTemplate = _.template(aboutTemplate, data);
+			$("#loading").hide();
+			$("#content").show();
 			$(".btn.btn-navbar").toggleClass("collapsed");
 			$(".nav-collapse.in.collapse").toggleClass("in").height(0);
 			this.e1.html(compiledTemplate);

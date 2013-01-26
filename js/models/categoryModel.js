@@ -10,6 +10,7 @@ define([
 	{
 		var success = options.success;
 		var model = this;
+		
 		$.getJSON("http://gentle-gorge-9059.herokuapp.com/categories.json?callback=?",function(data)
 		
 			{
